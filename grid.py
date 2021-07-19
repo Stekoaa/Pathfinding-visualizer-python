@@ -1,5 +1,4 @@
 import pygame
-import colors
 import time
 import json
 
