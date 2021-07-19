@@ -8,6 +8,7 @@ with open('config.json') as config_file:
 
 pygame.init()
 
+
 class Node:
     def __init__(self, row, col, width, total_rows):
         self.row = row

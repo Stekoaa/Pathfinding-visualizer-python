@@ -20,6 +20,7 @@ def a_star(draw, grid, start, end):
     count = 0
     open_set = PriorityQueue()
     open_set.put((0, count, start))
+
     came_from = {}
     g_score = {node: float("inf") for row in grid for node in row}
     g_score[start] = 0

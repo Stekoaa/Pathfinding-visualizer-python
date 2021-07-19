@@ -4,9 +4,12 @@ from astar import a_star
 from dijkstra import dijkstra
 from grid import draw, make_grid, get_clicked_position, display_failure
 
+
+pygame.init()
+
+
 with open('config.json') as config_file:
     data = json.load(config_file)
-pygame.init()
 
 
 WIDTH = data["width"]
@@ -62,8 +65,6 @@ def main(win, width):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_a and start and end:
-                    started = True
-
                     for row in grid:
                         for node in row:
                             node.update_neighbours(grid)

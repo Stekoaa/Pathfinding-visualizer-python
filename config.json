@@ -14,6 +14,6 @@
 		"GREY": [128, 128, 128],
 		"TURQUOISE": [64, 224, 208]
 	},
-	"text_font": "comicsans",
+	"text_font": "comic sans",
 	"text_size": 40
 }
