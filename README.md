@@ -1,5 +1,5 @@
 # Pathfinding-visualizer-python
-
+A python visualization of the A* and Dijskstra path finding algorithms.
 
 
 
