@@ -1,6 +1,10 @@
 import pygame
 import colors
 import time
+import json
+
+with open('config.json') as config_file:
+    data = json.load(config_file)
 
 pygame.init()
 
@@ -12,47 +16,47 @@ class Node:
         self.y = col * width
         self.width = width
         self.total_rows = total_rows
-        self.color = colors.WHITE
+        self.color = data["colors"]["WHITE"]
         self.neighbours = []
 
     def get_pos(self):
         return self.row, self.col
 
     def is_start(self):
-        return self.color == colors.ORANGE
+        return self.color == data["colors"]["ORANGE"]
 
     def is_end(self):
-        return self.color == colors.TURQUOISE
+        return self.color == data["colors"]["TURQUOISE"]
 
     def is_barrier(self):
-        return self.color == colors.BLACK
+        return self.color == data["colors"]["BLACK"]
 
     def is_open(self):
-        return self.color == colors.GREEN
+        return self.color == data["colors"]["GREEN"]
 
     def is_closed(self):
-        return self.color == colors.RED
+        return self.color == data["colors"]["RED"]
 
     def reset(self):
-        self.color = colors.WHITE
+        self.color = data["colors"]["WHITE"]
 
     def make_start(self):
-        self.color = colors.ORANGE
+        self.color = data["colors"]["ORANGE"]
 
     def make_end(self):
-        self.color = colors.TURQUOISE
+        self.color = data["colors"]["TURQUOISE"]
 
     def make_barrier(self):
-        self.color = colors.BLACK
+        self.color = data["colors"]["BLACK"]
 
     def make_path(self):
-        self.color = colors.PURPLE
+        self.color = data["colors"]["PURPLE"]
 
     def make_open(self):
-        self.color = colors.GREEN
+        self.color = data["colors"]["GREEN"]
 
     def make_closed(self):
-        self.color = colors.RED
+        self.color = data["colors"]["RED"]
 
     def update_neighbours(self, grid):
         self.neighbours = []
@@ -79,7 +83,7 @@ class Node:
         return False
 
 
-TEXT_FONT = pygame.font.SysFont('comicsans', 40)
+TEXT_FONT = pygame.font.SysFont(data["text_font"], data["text_size"])
 TEXT = TEXT_FONT.render("End node is not reachable from the start node", True, (0, 0, 0))
 
 
@@ -100,9 +104,9 @@ def draw_grid(rows, width, win):
 
     gap = width // rows
     for i in range(rows):
-        pygame.draw.line(win, colors.GREY, (0, i * gap), (width, i * gap))
+        pygame.draw.line(win, data["colors"]["GREY"], (0, i * gap), (width, i * gap))
         for j in range(rows):
-            pygame.draw.line(win, colors.GREY, (j * gap, 0), (j * gap, width))
+            pygame.draw.line(win, data["colors"]["GREY"], (j * gap, 0), (j * gap, width))
 
 
 def draw(rows, width, win, grid):

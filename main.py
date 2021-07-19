@@ -1,13 +1,18 @@
 import pygame
+import json
 from astar import a_star
 from dijkstra import dijkstra
 from grid import draw, make_grid, get_clicked_position, display_failure
 
+with open('config.json') as config_file:
+    data = json.load(config_file)
 pygame.init()
 
-WIDTH = 800
+
+WIDTH = data["width"]
 WIN = pygame.display.set_mode((WIDTH, WIDTH))
-ROWS = 50
+pygame.display.set_caption("Path Finding Visualizer")
+ROWS = data["ROWS"]
 
 
 def main(win, width):
