@@ -128,7 +128,7 @@ def get_clicked_position(pos, width, rows):
     return row, col
 
 
-def display_failure(WIN, WIDTH):
-    WIN.blit(TEXT, (WIDTH // 10, WIDTH // 2))
+def display_failure(win, width):
+    win.blit(TEXT, (width // 10, width // 2))
     pygame.display.update()
     time.sleep(2.0)
