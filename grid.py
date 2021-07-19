@@ -109,7 +109,7 @@ def draw_grid(rows, width, win):
 
 
 def draw(rows, width, win, grid):
-    win.fill(colors.WHITE)
+    win.fill(data["colors"]["WHITE"])
 
     for row in grid:
         for node in row:
